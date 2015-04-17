@@ -9,5 +9,6 @@ app.get('/', function(req, res) {}); // leads to public/index.html
 app.get('/api/v1', api.v1);
 
 app.listen(app.get('port'), function() {
-  console.log("Node WebGL app is running at localhost:" + app.get('port'));
+  console.log("Node WebGL app is running at localhost:"
+    + app.get('port'));
 });
