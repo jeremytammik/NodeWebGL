@@ -6,3 +6,37 @@ exports.v1 = function(req, res) {
     res.send('API v1 POST: ' + JSON.stringify(req.body));
   }
 };
+
+//var swig = require('swig');
+//var template = null;
+
+exports.v2 = function(req, res) {
+  if (req.method == 'GET') {
+    res.send('API v2 GET: Here belongs a succinct explanation how to use The Building Coder WebGL Viewer REST API v2...');
+  }
+  else if (req.method == 'POST') {
+    console.log('API v2 POST: ' + JSON.stringify(req.body));
+
+    //res.render('viewer2');
+
+    //if( null == template) {
+    //  template = swig.compileFile('views/viewer.html');
+    //}
+    //var output = template(req.body);
+    //console.log('before send');
+    //res.send(output);
+    //console.log('after send');
+
+    res.render('viewer', req.body);
+
+    //fs = require('fs');
+    //fs.readFile('views/index.jtemplate', 'utf8',
+    //  function (err,data) {
+    //    if (err) {
+    //      return console.log(err);
+    //    }
+    //    res.send(data);
+    //  }
+    //);
+  }
+};
