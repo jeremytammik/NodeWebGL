@@ -6631,18 +6631,12 @@ function make_float_array(s) {
 
 function start_render() {
 
-  //alert('start_render');
-
   var position = document.getElementById('p').innerHTML;
   var normal = document.getElementById('n').innerHTML;
   var indices = document.getElementById('i').innerHTML;
   position = make_float_array(position);
   normal = make_float_array(normal);
   indices = make_int_array(indices);
-
-  //alert(position);
-  //alert(normal);
-  //alert(indices);
 
   var arrays = {
     position: position,

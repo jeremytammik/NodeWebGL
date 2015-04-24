@@ -11,10 +11,6 @@ var bodyParser = require('body-parser');
 app.use( bodyParser.json() );
 app.use( bodyParser.urlencoded({ extended: true }) );
 
-//var exphbs  = require('express-handlebars');
-//app.engine('handlebars', exphbs()); // {defaultLayout: 'main'}
-//app.set('view engine', 'handlebars');
-
 var swig = require('swig');
 app.engine('swig', swig.renderFile);
 app.set('view engine', 'swig');
