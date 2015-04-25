@@ -11,12 +11,22 @@ var bodyParser = require('body-parser');
 app.use( bodyParser.json({ limit: '1mb' }) );
 app.use( bodyParser.urlencoded({ extended: true, limit: '1mb' }) );
 
-var swig = require('swig');
-app.engine('swig', swig.renderFile);
-app.set('view engine', 'swig');
 app.set('views', __dirname + '/views');
-app.set('view cache', false);
-swig.setDefaults({ cache: false });
+
+var use_swig_render = false;
+
+if( use_swig_render ) {
+  var swig = require('swig');
+  app.engine('swig', swig.renderFile);
+  app.set('view engine', 'swig');
+  swig.setDefaults({ cache: false });
+  app.set('view cache', false);
+}
+else {
+  var handlebars = require('express-handlebars');
+  app.engine('handlebars', handlebars());
+  app.set('view engine', 'handlebars');
+}
 
 var api = require('./routes/api');
 
@@ -27,6 +37,8 @@ app.get('/api/v2', api.v2);
 app.post('/api/v2', api.v2);
 
 app.listen(app.get('port'), function() {
-  console.log("Node WebGL app is running at localhost:"
+  console.log('Node WebGL app with '
+    + (use_swig_render ? 'swig' : 'handlebars')
+    + ' is running at localhost:'
     + app.get('port'));
 });
