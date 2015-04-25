@@ -2,7 +2,9 @@
 
 A minimal Node.js WebGL viewer app using [Express 4](http://expressjs.com/).
 
-Originally based on the Heroku node-js-getting-started skeleton.
+Originally based on the Heroku
+[node-js-getting-started](https://github.com/heroku/node-js-getting-started)
+skeleton.
 
 For a detailed description, please refer to
 [The Building Coder](http://thebuildingcoder.typepad.com) and
