@@ -8,8 +8,8 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function(req, res) {}); // leads to public/index.html
 
 var bodyParser = require('body-parser');
-app.use( bodyParser.json() );
-app.use( bodyParser.urlencoded({ extended: true }) );
+app.use( bodyParser.json({ limit: '1mb' }) );
+app.use( bodyParser.urlencoded({ extended: true, limit: '1mb' }) );
 
 var swig = require('swig');
 app.engine('swig', swig.renderFile);
