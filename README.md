@@ -6,6 +6,9 @@ Originally based on the Heroku
 [node-js-getting-started](https://github.com/heroku/node-js-getting-started)
 skeleton.
 
+A sample app to drive the viewer via its REST API is provided by the
+[TwglExport](https://github.com/jeremytammik/TwglExport) Revit add-in.
+
 For a detailed description, please refer to
 [The Building Coder](http://thebuildingcoder.typepad.com) and
 [The 3D Web Coder](http://the3dwebcoder.typepad.com).
