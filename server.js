@@ -30,11 +30,11 @@ else {
 
 var api = require('./routes/api');
 
-app.get('/api/v1', api.v1);
-app.post('/api/v1', api.v1);
+app.get('/api/v1', api.v1get);
+app.post('/api/v1', api.v1post);
 
-app.get('/api/v2', api.v2);
-app.post('/api/v2', api.v2);
+app.get('/api/v2', api.v2get);
+app.post('/api/v2', api.v2post);
 
 app.listen(app.get('port'), function() {
   console.log('Node WebGL app with '
