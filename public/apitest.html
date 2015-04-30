@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>The Building Coder twgl.js WebGL Viewer</title>
+    <style>
+      html, body, canvas {
+        margin: 0px;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+    </style>
+</head>
+<body>
+
+<center>
+<form method="post" action="/api/v2" id="form_0017" target="node_server_0017">
+  <p>Populate with hard-wired wall geometry data:
+  <select name="walldata" onchange="set_wall_data_0017(this.form.walldata.value)">
+  <option value="0">Cube</option>
+  <option value="1">Simple</option>
+  <option value="2">Straight</option>
+  <option value="3">Curved Facets</option>
+  <option value="4">Curved Smooth</option>
+  <option value="5">Nil &ndash; Clear All</option>
+  </select></p>
+
+  <table>
+    <tr><td colspan="2">... or enter your own data:</td></tr>
+    <tr><td>position:</td><td><input type="text" id="position" name="position" value="1, 1, -1,  1, 1, 1,  1, -1, 1,  1, -1, -1,  -1, 1, 1,  -1, 1, -1,  -1, -1, -1,  -1, -1, 1,  -1, 1, 1,   1, 1, 1,  1, 1, -1,  -1, 1, -1,  -1, -1, -1,  1, -1, -1,  1, -1, 1, -1, -1, 1,  1, 1, 1,   -1, 1, 1,  -1, -1, 1,  1, -1, 1,  -1, 1, -1,   1, 1, -1,  1, -1, -1,  -1, -1, -1"></td></tr>
+    <tr><td>normal:</td><td><input type="text" id="normal" name="normal" value="1, 0, 0,   1, 0, 0,   1, 0, 0,   1, 0, 0,   -1, 0, 0,  -1, 0, 0,   -1, 0, 0,  -1, 0, 0,   0, 1, 0,   0, 1, 0,   0, 1, 0,   0, 1, 0,   0, -1, 0,  0, -1, 0,  0, -1, 0,  0, -1, 0,   0, 0, 1,   0, 0, 1,   0, 0, 1,   0, 0, 1,   0, 0, -1,  0, 0, -1,  0, 0, -1,  0, 0, -1"></td></tr>
+    <tr><td>indices:</td><td><input type="text" id="indices" name="indices" value="0, 1, 2,  0, 2, 3,  4, 5, 6,  4, 6, 7,  8, 9, 10,  8, 10, 11,  12, 13, 14,  12, 14, 15,  16, 17, 18,  16,  18, 19,  20, 21, 22,  20, 22, 23"></td></tr>
+    <tr><td></td><td>
+      <input value="Get" type="submit" onclick="this.form.method='get';open_node_server_window_0017()">
+      <input value="Post" type="submit" onclick="this.form.method='post';open_node_server_window_0017('post')">
+    </td></tr>
+  </table>
+</form>
+</center>
+
+</body>
+</html>
