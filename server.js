@@ -28,13 +28,15 @@ else {
   app.set('view engine', 'handlebars');
 }
 
-var api = require('./routes/api');
+var apiv1 = require('./routes/apiv1');
 
-app.get('/api/v1', api.v1get);
-app.post('/api/v1', api.v1post);
+app.get('/api/v1', apiv1.get);
+app.post('/api/v1', apiv1.post);
 
-app.get('/api/v2', api.v2get);
-app.post('/api/v2', api.v2post);
+var apiv2 = require('./routes/apiv2');
+
+app.get('/api/v2', apiv2.get);
+app.post('/api/v2', apiv2.post);
 
 app.listen(app.get('port'), function() {
   console.log('Node WebGL app with '
@@ -42,3 +44,4 @@ app.listen(app.get('port'), function() {
     + ' is running at localhost:'
     + app.get('port'));
 });
+
