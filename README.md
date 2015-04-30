@@ -1,12 +1,8 @@
 # NodeWebGL
 
-A minimal Node.js WebGL viewer app using [Express 4](http://expressjs.com/).
+A minimal Node.js WebGL viewer app using [Express 4](http://expressjs.com).
 
-Originally based on the Heroku
-[node-js-getting-started](https://github.com/heroku/node-js-getting-started)
-skeleton.
-
-A sample app to drive the viewer via its REST API is provided by the
+A sample desktop app to drive the viewer via its REST API is provided by the
 [TwglExport](https://github.com/jeremytammik/TwglExport) Revit add-in.
 
 For a detailed description, please refer to
@@ -18,6 +14,10 @@ For a detailed description, please refer to
 
 Jeremy Tammik, [The Building Coder](http://thebuildingcoder.typepad.com) and
 [The 3D Web Coder](http://the3dwebcoder.typepad.com), Autodesk Inc.
+
+Originally based on the Heroku
+[node-js-getting-started](https://github.com/heroku/node-js-getting-started)
+skeleton.
 
 
 ## License

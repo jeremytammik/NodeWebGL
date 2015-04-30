@@ -1,6 +1,6 @@
 {
   "name": "NodeWebGL",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "A Node.js WebGL viewer app using Express 4",
   "main": "server.js",
   "scripts": {
