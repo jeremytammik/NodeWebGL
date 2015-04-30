@@ -2,18 +2,21 @@
 var m4;
 var gl;
 var programInfo;
+
 function make_int_array(s) {
   return s.split(',')
     .map( function(a){
       return parseInt(a, 10);
     });
 }
+
 function make_float_array(s) {
   return s.split(',')
     .map( function(a){
       return parseFloat(a);
     });
 }
+
 function start_render() {
   var position = $('#p').text();
   var normal = $('#n').text();
@@ -34,6 +37,7 @@ function start_render() {
   programInfo = twgl.createProgramInfo (gl, [ shadersHolder.vertex, shadersHolder.fragment ]);
 
   var bufferInfo = twgl.createBufferInfoFromArrays(gl, arrays);
+
   // A 2x2 pixel texture from a JavaScript array
   var texture = twgl.createTexture(gl, {
     min: gl.NEAREST,
@@ -44,6 +48,7 @@ function start_render() {
       192, 192, 192, 255,
       255, 255, 255, 255],
   });
+
   var uniforms = {
     u_lightWorldPos: [1, 8, -10],
     u_lightColor: [1, 0.8, 0.8, 1],
@@ -53,6 +58,7 @@ function start_render() {
     u_specularFactor: 1,
     u_diffuse: texture,
   };
+
   function render(time) {
     time *= 0.001;
     twgl.resizeCanvasToDisplaySize(gl.canvas);
@@ -85,40 +91,43 @@ function start_render() {
   requestAnimationFrame(render);
 }
 
-
 var shadersLoaderCount =0 ;
 var shadersHolder ={ vertex: '', fragment: '' } ;
+
 function loadShader (shader, type) {
-    var $shader =$(shader) ;
-    $.ajax ({
-        url: $shader [0].src,
-        dataType: 'text',
-        context: {
-            name: $shader [0].id,
-            type: type
-        },
-        complete: processShader
-    }) ;
+  console.log('loadShader: ' + type);
+  var $shader =$(shader) ;
+  $.ajax ({
+    url: $shader [0].src,
+    dataType: 'text',
+    context: {
+      name: $shader [0].id,
+      type: type
+    },
+    complete: processShader
+  }) ;
 }
 
 function processShader (jqXHR, textStatus) {
-    shadersLoaderCount-- ;
-    shadersHolder [this.type] =jqXHR.responseText ;
+  console.log('processShader');
+  shadersLoaderCount-- ;
+  shadersHolder [this.context.type] =jqXHR.responseText ;
 
-    if ( !shadersLoaderCount )
-        shadersLoadComplete () ;
+  if ( !shadersLoaderCount )
+    shadersLoadComplete () ;
 }
 
 function shadersLoadComplete () {
-    start_render () ;
+  start_render () ;
 }
 
 $(document).ready (function () {
-	var vertexShaders =$('script[type="x-shader/x-vertex"]') ;
-	var fragmentShaders =$('script[type="x-shader/x-fragment"]') ;
-	shadersLoaderCount =vertexShaders.length + fragmentShaders.length ;
+  console.log('document ready');
+  var vertexShaders =$('script[type="x-shader/x-vertex"]') ;
+  var fragmentShaders =$('script[type="x-shader/x-fragment"]') ;
+  shadersLoaderCount =vertexShaders.length + fragmentShaders.length ;
+  console.log('shadersLoaderCount: ' + shadersLoaderCount);
 
-	loadShader (vertexShaders [0], 'vertex') ;
-	loadShader (fragmentShaders [0], 'fragment') ;
-
+  loadShader (vertexShaders [0], 'vertex') ;
+  loadShader (fragmentShaders [0], 'fragment') ;
 }) ;
