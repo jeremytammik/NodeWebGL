@@ -1,12 +1,3 @@
-exports.v1get = function(req, res) {
-  res.send('API v1 GET: Hello World!');
-}
-
-exports.v1post = function(req, res) {
-  res.send('API v1 POST: '
-    + JSON.stringify(req.body));
-}
-
 exports.v2get = function(req, res) {
   res.send('API v2 GET: Here belongs a succinct '
     + 'explanation how to use The Building Coder '
