@@ -6,5 +6,6 @@ exports.get = function(req, res) {
 
 exports.post = function(req, res) {
   console.log('API v2 POST: ' + JSON.stringify(req.body));
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.render('viewer', req.body);
 }

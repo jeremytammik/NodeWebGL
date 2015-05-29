@@ -98,6 +98,7 @@ function loadShader (shader, type) {
   console.log('loadShader: ' + type);
   var $shader =$(shader) ;
   $.ajax ({
+    crossOrigin: true,
     url: $shader [0].src,
     dataType: 'text',
     context: {
