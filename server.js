@@ -29,14 +29,18 @@ else {
 }
 
 var apiv1 = require('./routes/apiv1');
+var apiv2 = require('./routes/apiv2');
 
+/*
 app.get('/api/v1', apiv1.get);
 app.post('/api/v1', apiv1.post);
 
-var apiv2 = require('./routes/apiv2');
-
 app.get('/api/v2', apiv2.get);
 app.post('/api/v2', apiv2.post);
+*/
+
+app.use ('/api/v1', apiv1);
+app.use ('/api/v2', apiv2);
 
 app.listen(app.get('port'), function() {
   console.log('Node WebGL app with '
@@ -44,4 +48,3 @@ app.listen(app.get('port'), function() {
     + ' is running at localhost:'
     + app.get('port'));
 });
-

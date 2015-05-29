@@ -1,8 +1,13 @@
-exports.get = function(req, res) {
-  res.send('API v1 GET: Hello World!');
-}
+var express = require('express');
+var router = express.Router();
 
-exports.post = function(req, res) {
+router.get ('/', function(req, res) {
+  res.send('API v1 GET: Hello World!');
+});
+
+router.post ('/', function(req, res) {
   res.send('API v1 POST: '
     + JSON.stringify(req.body));
-}
+});
+
+module.exports = router;
